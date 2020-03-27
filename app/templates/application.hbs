@@ -1,5 +1,8 @@
 <div class='container'>
-  <h1> COVID-19 Azores</h1>
+  <h1>COVID-19 Azores</h1>
+  <h2>Total Cases</h2>
   <TotalCasesChart @data={{model}}/>
+  <h2>Daily Cases</h2>
+  <DailyCasesChart @data={{model}}/>
   <UpdateTable @updates={{@model}} />
 </div>

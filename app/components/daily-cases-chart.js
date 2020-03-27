@@ -35,54 +35,54 @@ export default class TotalCasesChartComponent extends Component {
     }
   }
 
-  @computed('this.sortedData.@each.runningTotal')
+  @computed('this.sortedData.@each.total')
   get totalsDataSet() {
-    return this.getDataSet('runningTotal', 'Total Cases', true);
+    return this.getDataSet('total', 'Total Cases', true);
   }
 
-  @computed('this.sortedData.@each.saoMiguelRunningTotal')
+  @computed('this.sortedData.@each.saoMiguel')
   get saoMiguelDataSet() {
-    return this.getDataSet('saoMiguelRunningTotal', 'Sao Miguel');
+    return this.getDataSet('saoMiguel', 'Sao Miguel');
   }
 
-  @computed('this.sortedData.@each.santaMariaRunningTotal')
+  @computed('this.sortedData.@each.santaMaria')
   get santaMariaDataSet() {
-    return this.getDataSet('santaMariaRunningTotal', 'Santa Maria');
+    return this.getDataSet('santaMaria', 'Santa Maria');
   }
 
-  @computed('this.sortedData.@each.faialRunningTotal')
+  @computed('this.sortedData.@each.faial')
   get faialDataSet() {
-    return this.getDataSet('faialRunningTotal', 'Faial');
+    return this.getDataSet('faial', 'Faial');
   }
 
-  @computed('this.sortedData.@each.terceiraRunningTotal')
+  @computed('this.sortedData.@each.terceira')
   get terceiraDataSet() {
-    return this.getDataSet('terceiraRunningTotal', 'Terceira');
+    return this.getDataSet('terceira', 'Terceira');
   }
 
-  @computed('this.sortedData.@each.picoRunningTotal')
+  @computed('this.sortedData.@each.pico')
   get picoDataSet() {
-    return this.getDataSet('picoRunningTotal', 'Pico');
+    return this.getDataSet('pico', 'Pico');
   }
 
-  @computed('this.sortedData.@each.saoJorgeRunningTotal')
+  @computed('this.sortedData.@each.saoJorge')
   get saoJorgeDataSet() {
-    return this.getDataSet('saoJorgeRunningTotal', 'Sao Jorge');
+    return this.getDataSet('saoJorge', 'Sao Jorge');
   }
 
-  @computed('this.sortedData.@each.graciosaRunningTotal')
+  @computed('this.sortedData.@each.graciosa')
   get graciosaDataSet() {
-    return this.getDataSet('graciosaRunningTotal', 'Graciosa');
+    return this.getDataSet('graciosa', 'Graciosa');
   }
 
-  @computed('this.sortedData.@each.floresRunningTotal')
+  @computed('this.sortedData.@each.flores')
   get floresDataSet() {
-    return this.getDataSet('floresRunningTotal', 'Flores');
+    return this.getDataSet('flores', 'Flores');
   }
 
-  @computed('this.sortedData.@each.corvoRunningTotal')
+  @computed('this.sortedData.@each.corvo')
   get corvoDataSet() {
-    return this.getDataSet('corvoRunningTotal', 'Corvo');
+    return this.getDataSet('corvo', 'Corvo');
   }
 
   @computed('this.labels', 'this.totalsDataSet', 'this.saoMiguelDataSet', 'this.santaMariaSataSet',
