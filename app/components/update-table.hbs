@@ -1,0 +1,50 @@
+<table class='table'>
+  <tr>
+    <th scope='col'>Date</th>
+    <th scope='col' colspan=2>Total</th>
+    <th scope='col' colspan=2>Eastern Group</th>
+    <th scope='col' colspan=2>Sao Miguel</th>
+    <th scope='col' colspan=2>Santa Maria</th>
+    <th scope='col' colspan=2>Central Group</th>
+    <th scope='col' colspan=2>Faial</th>
+    <th scope='col' colspan=2>Terceira</th>
+    <th scope='col' colspan=2>Pico</th>
+    <th scope='col' colspan=2>Sao Jorge</th>
+    <th scope='col' colspan=2>Graciosa</th>
+    <th scope='col' colspan=2>Western Group</th>
+    <th scope='col' colspan=2>Flores</th>
+    <th scope='col' colspan=2>Corvo</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+    <th scope='col'>Δ</th>
+    <th scope='col'>Σ</th>
+  </tr>
+  {{#each @updates as |update|}}
+    <UpdateTableRow @update={{update}} />
+  {{/each}}
+</table>
