@@ -36,16 +36,10 @@ module('Integration | Component | snapshot', function(hooks) {
     }];
 
   test('it renders correctly', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     this.set('model', mockModel);
-
     await render(hbs`<Snapshot @data={{this.model}}/>`);
 
     assert.equal(this.element.textContent.trim().replace(/\s\s+/g, " "),
     'Total São Miguel Santa Maria Faial Terceira Pico São Jorge Graciosa Flores Corvo 18 0 2 4 6 8 10 12 14 16');
-
-    console.log(this.element.querySelector('td'))
   });
 });
