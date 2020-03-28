@@ -1,0 +1,13 @@
+app_title: COVID-19 Azores
+
+app_lead:
+  before_link: If you have a dry cough and a fever or are experiencing difficulties breathing please call
+  link: Azores Health Line 808 24 60 24
+  after_link: and isolate yourself.
+
+app_foot:
+  before_link: Made by Pete Martin, 2020. If you found this useful please consider
+  link: buying me a coffee
+
+daily_cases: 'Daily Cases'
+total_cases: 'Total Cases'

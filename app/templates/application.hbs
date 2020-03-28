@@ -1,12 +1,11 @@
 <div class='container'>
-  <h1>COVID-19 Azores</h1>
+  <h1>{{t 'app_title'}}</h1>
   <p class='lead'>
-      If you have a dry cough and a fever or are experiencing difficulties breathing
-      please call
-      <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
-        Linha Saude Acores 808 24 60 24
-      </a>
-      and isolate yourself.
+    {{t 'app_lead.before_link'}}
+    <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
+      {{t 'app_lead.link'}}
+    </a>
+    {{t 'app_lead.after_link'}}
   </p>
   <Snapshot @data={{model}} />
   <TotalCasesChart @data={{model}} />
@@ -15,7 +14,10 @@
   <br />
   <p class='text-center'>
     <small>
-      Made by Pete Martin, 2020. If you found this useful please consider <a href='https://ko-fi.com/ninjatronic'>buying me a coffee</a>.
+      {{t 'app_foot.before_link'}}
+      <a href='https://ko-fi.com/ninjatronic'>
+        {{t 'app_foot.link'}}
+      </a>.
     </small>
   </p>
 </div>

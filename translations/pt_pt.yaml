@@ -1,0 +1,13 @@
+app_title: COVID-19 Açores
+
+app_lead:
+  before_link: Se você tiver tosse seca e febre ou tiver dificuldade em respirar, ligue para
+  link: Linha Saude Acores 808 24 60 24
+  after_link: e se isole.
+
+app_foot:
+  before_link: Feito por Pete Martin, 2020. Se você achou isso útil, considere
+  link: comprar um café para mim
+
+daily_cases: 'Casos Diários'
+total_cases: 'Total de Casos'
