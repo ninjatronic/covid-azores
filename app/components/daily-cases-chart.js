@@ -22,7 +22,7 @@ export default class TotalCasesChartComponent extends Component {
     return labels;
   }
 
-  getDataSet(key, label, fill = false) {
+  getDataSet(key, label, fill = false, borderColor = '#888') {
     let totalsData = [];
     this.sortedData.forEach((update, i) => {
       totalsData.push(update[key]);
@@ -31,43 +31,44 @@ export default class TotalCasesChartComponent extends Component {
       label: label,
       data: totalsData,
       fill: fill,
+      borderColor: borderColor,
       lineTension: 0.1
     }
   }
 
   @computed('this.sortedData.@each.total')
   get totalsDataSet() {
-    return this.getDataSet('total', 'Total Cases', true);
+    return this.getDataSet('total', 'Total Cases', true, '#AAA');
   }
 
   @computed('this.sortedData.@each.saoMiguel')
   get saoMiguelDataSet() {
-    return this.getDataSet('saoMiguel', 'Sao Miguel');
+    return this.getDataSet('saoMiguel', 'Sao Miguel', false, '#55A');
   }
 
   @computed('this.sortedData.@each.santaMaria')
   get santaMariaDataSet() {
-    return this.getDataSet('santaMaria', 'Santa Maria');
+    return this.getDataSet('santaMaria', 'Santa Maria', 'Santa Maria', false);
   }
 
   @computed('this.sortedData.@each.faial')
   get faialDataSet() {
-    return this.getDataSet('faial', 'Faial');
+    return this.getDataSet('faial', 'Faial', false, '#5A5');
   }
 
   @computed('this.sortedData.@each.terceira')
   get terceiraDataSet() {
-    return this.getDataSet('terceira', 'Terceira');
+    return this.getDataSet('terceira', 'Terceira', false, '#AA5');
   }
 
   @computed('this.sortedData.@each.pico')
   get picoDataSet() {
-    return this.getDataSet('pico', 'Pico');
+    return this.getDataSet('pico', 'Pico', false, '#A55');
   }
 
   @computed('this.sortedData.@each.saoJorge')
   get saoJorgeDataSet() {
-    return this.getDataSet('saoJorge', 'Sao Jorge');
+    return this.getDataSet('saoJorge', 'Sao Jorge', false, '#5AA');
   }
 
   @computed('this.sortedData.@each.graciosa')

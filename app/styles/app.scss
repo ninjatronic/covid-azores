@@ -1,2 +1,19 @@
+$mute-color: #888;
+$light-color: #AAA;
+$snapshot-table-cell-width: 10%;
 
+.mute {
+  color: $mute-color;
+}
+
+.light {
+  color: $light-color;
+}
+
+.snapshot-table-cell {
+  width: $snapshot-table-cell-width;
+}
+
+@import "./_variables.scss";
 @import "ember-bootstrap/bootstrap";
+@import "./bootswatch.scss";

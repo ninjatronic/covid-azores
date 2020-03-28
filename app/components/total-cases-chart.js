@@ -22,7 +22,7 @@ export default class TotalCasesChartComponent extends Component {
     return labels;
   }
 
-  getDataSet(key, label, fill = false) {
+  getDataSet(key, label, fill = false, borderColor = '#888') {
     let totalsData = [];
     this.sortedData.forEach((update, i) => {
       totalsData.push(update[key]);
@@ -31,43 +31,44 @@ export default class TotalCasesChartComponent extends Component {
       label: label,
       data: totalsData,
       fill: fill,
+      borderColor: borderColor,
       lineTension: 0.1
     }
   }
 
   @computed('this.sortedData.@each.runningTotal')
   get totalsDataSet() {
-    return this.getDataSet('runningTotal', 'Total Cases', true);
+    return this.getDataSet('runningTotal', 'Total Cases', true, '#AAA');
   }
 
   @computed('this.sortedData.@each.saoMiguelRunningTotal')
   get saoMiguelDataSet() {
-    return this.getDataSet('saoMiguelRunningTotal', 'Sao Miguel');
+    return this.getDataSet('saoMiguelRunningTotal', 'Sao Miguel', false, '#55A');
   }
 
   @computed('this.sortedData.@each.santaMariaRunningTotal')
   get santaMariaDataSet() {
-    return this.getDataSet('santaMariaRunningTotal', 'Santa Maria');
+    return this.getDataSet('santaMariaRunningTotal', 'Santa Maria', false);
   }
 
   @computed('this.sortedData.@each.faialRunningTotal')
   get faialDataSet() {
-    return this.getDataSet('faialRunningTotal', 'Faial');
+    return this.getDataSet('faialRunningTotal', 'Faial', false, '#5A5');
   }
 
   @computed('this.sortedData.@each.terceiraRunningTotal')
   get terceiraDataSet() {
-    return this.getDataSet('terceiraRunningTotal', 'Terceira');
+    return this.getDataSet('terceiraRunningTotal', 'Terceira', false, '#AA5');
   }
 
   @computed('this.sortedData.@each.picoRunningTotal')
   get picoDataSet() {
-    return this.getDataSet('picoRunningTotal', 'Pico');
+    return this.getDataSet('picoRunningTotal', 'Pico', false, '#A55');
   }
 
   @computed('this.sortedData.@each.saoJorgeRunningTotal')
   get saoJorgeDataSet() {
-    return this.getDataSet('saoJorgeRunningTotal', 'Sao Jorge');
+    return this.getDataSet('saoJorgeRunningTotal', 'Sao Jorge', false, '#5AA');
   }
 
   @computed('this.sortedData.@each.graciosaRunningTotal')
