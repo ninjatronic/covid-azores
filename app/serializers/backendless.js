@@ -11,6 +11,7 @@ export default class BackendlessSerializer extends JSONAPISerializer {
       for(var key in item.attributes) {
         item.attributes[dasherize(key)] = item.attributes[key];
       }
+      item.attributes.date = item.attributes.updateDate;
       item.type = singularize(item.attributes.___class);
       item.objectId = item.attributes.objectId;
     });

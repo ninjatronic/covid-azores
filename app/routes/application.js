@@ -29,7 +29,7 @@ export default class ApplicationRoute extends Route {
 
       let runningTotal = 0;
 
-      results.forEach((result, i) => {
+      results.sortBy('date').forEach((result, i) => {
 
         saoMiguelRunningTotal += result.saoMiguel;
         result.saoMiguelRunningTotal = saoMiguelRunningTotal;
