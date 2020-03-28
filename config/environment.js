@@ -3,7 +3,6 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'covid-azores',
-    environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -20,6 +19,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    backendless: {
+      appID: '',
+      apiKey: ''
     }
   };
 
@@ -29,6 +33,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.backendless.appID = 'CC14A0FB-3B83-4EB5-FF2F-0BF3ED5CFA00';
+    ENV.backendless.apiKey = '88C8394F-8051-44D3-8C79-507FCFA6AECD';
   }
 
   if (environment === 'test') {
@@ -46,6 +52,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.rootURL = '/covid-azores/';
     // here you can enable a production-specific feature
+    ENV.backendless.appID = 'CC14A0FB-3B83-4EB5-FF2F-0BF3ED5CFA00';
+    ENV.backendless.apiKey = '88C8394F-8051-44D3-8C79-507FCFA6AECD';
   }
 
   return ENV;
