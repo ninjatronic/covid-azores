@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/covid-azores';
+    ENV.rootURL = '/covid-azores/';
     // here you can enable a production-specific feature
   }
 
