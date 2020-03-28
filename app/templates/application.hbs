@@ -1,8 +1,21 @@
 <div class='container'>
-  <h1 class='display-3'>COVID-19 Azores</h1>
+  <h1>COVID-19 Azores</h1>
+  <p class='lead'>
+      If you have a dry cough and a fever or are experiencing difficulties breathing
+      please call
+      <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
+        Linha Saude Acores 808 24 60 24
+      </a>
+      and isolate yourself.
+  </p>
   <Snapshot @data={{model}} />
-  <h2 class='light'>Total Cases</h2>
   <TotalCasesChart @data={{model}} />
-  <h2 class='light'>Daily Cases</h2>
+  <br/>
   <DailyCasesChart @data={{model}} />
+  <br />
+  <p class='text-center'>
+    <small>
+      Made by Pete Martin, 2020. If you found this useful please consider <a href='https://ko-fi.com/ninjatronic'>buying me a coffee</a>.
+    </small>
+  </p>
 </div>
