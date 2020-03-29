@@ -26,7 +26,7 @@ export default class CasesChartComponent extends Component {
     this.type = 'line';
   }
 
-  @computed('this.data.@each.date')
+  @computed('this.args.data.@each.date')
   get sortedData() {
     return this.args.data.sortBy('date');
   }
