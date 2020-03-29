@@ -3,6 +3,8 @@ import { computed } from '@ember/object';
 
 export default class UpdateModel extends Model {
   @attr('date') date;
+
+  @attr('number') total;
   @attr('number') saoMiguel;
   @attr('number') santaMaria;
   @attr('number') faial;
@@ -13,23 +15,15 @@ export default class UpdateModel extends Model {
   @attr('number') flores;
   @attr('number') corvo;
 
-  @computed('saoMiguel', 'santaMaria')
-  get easternGroup() {
-    return this.saoMiguel + this.santaMaria;
-  }
+  @attr('number') runningTotal;
+  @attr('number') saoMiguelRunningTotal;
+  @attr('number') santaMariaRunningTotal;
+  @attr('number') faialRunningTotal;
+  @attr('number') terceiraRunningTotal;
+  @attr('number') picoRunningTotal;
+  @attr('number') saoJorgeRunningTotal;
+  @attr('number') graciosaRunningTotal;
+  @attr('number') floresRunningTotal;
+  @attr('number') corvoRunningTotal;
 
-  @computed('faial', 'terceira', 'pico', 'saoJorge', 'graciosa')
-  get centralGroup() {
-    return this.faial + this.terceira + this.pico + this.saoJorge + this.graciosa;
-  }
-
-  @computed('flores', 'corvo')
-  get westernGroup() {
-    return this.flores + this.corvo;
-  }
-
-  @computed('easternGroup', 'centralGroup', 'westernGroup')
-  get total() {
-    return this.easternGroup + this.centralGroup + this.westernGroup;
-  }
 }
