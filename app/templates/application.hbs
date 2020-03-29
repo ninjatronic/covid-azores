@@ -7,11 +7,17 @@
     </a>
     {{t 'app_lead.after_link'}}
   </p>
-  <CasesMap @data={{model}} />
+  <div class='container map-container'>
+    <div class='row'>
+      <CasesMap @class={{'col-3 map align-self-start'}} @id={{'western-group'}} @mapKey={{'westernGroup'}} @data={{model}} @longitude={{-29.0}} @latitude={{39.1}} @scale={{10000}}/>
+      <CasesMap @class={{'col-9 map align-self-center'}} @id={{'central-group'}} @mapKey={{'centralGroup'}} @data={{model}} @longitude={{-28.3}} @latitude={{38.7}} @scale={{12000}}/>
+      <CasesMap @class={{'col-3 map align-self-end'}} @id={{'eastern-group'}} @mapKey={{'easternGroup'}} @data={{model}} @longitude={{-22.75}} @latitude={{36.92}} @scale={{8000}}/>
+    </div>
+  </div>
   <div class='container'>
     <div class='row'>
       <div class='col'>
-        <TotalCasesChart @data={{model}} />
+        <TotalCasesChart @data={{model}}/>
       </div>
       <div class='col'>
         <DailyCasesChart @data={{model}} />

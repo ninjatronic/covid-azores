@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 import config from 'covid-azores/config/environment';
 import { inject as service } from '@ember/service';
 
@@ -10,18 +10,18 @@ export default class CasesMapComponent extends Component {
   renderMap(element) {
     var projection = d3
 		.geoMercator()
-		.scale(5500)
-		.center([-26.7, 38.324]);
+		.scale(this.args.scale)
+		.center([this.args.longitude, this.args.latitude]);
 
   	var path = d3
       .geoPath()
-      .projection(projection);　
+      .projection(projection);
 
   	var map = d3
-      .select("#map > svg")
+      .select(`#${this.args.id} > svg`)
 
 		map.selectAll("path")
-			.data(this.geojson.data.features)
+			.data(this.geojson[this.args.mapKey].features)
 			.enter()
 			.append("path")
 			.attr("d", path)
