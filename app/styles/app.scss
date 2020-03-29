@@ -4,6 +4,11 @@ $snapshot-table-cell-width: 10%;
   width: $snapshot-table-cell-width;
 }
 
+#map > svg {
+  width: 100%;
+  height: 500px;
+}
+
 @import "./_variables.scss";
 @import "ember-bootstrap/bootstrap";
 @import "./bootswatch.scss";
