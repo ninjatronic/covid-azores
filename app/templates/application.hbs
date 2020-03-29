@@ -7,12 +7,17 @@
     </a>
     {{t 'app_lead.after_link'}}
   </p>
-  <Snapshot @data={{model}} />
   <CasesMap @data={{model}} />
-  <TotalCasesChart @data={{model}} />
-  <br/>
-  <DailyCasesChart @data={{model}} />
-  <br />
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <TotalCasesChart @data={{model}} />
+      </div>
+      <div class='col'>
+        <DailyCasesChart @data={{model}} />
+      </div>
+    </div>
+  </div>
   <p class='text-center'>
     <small>
       {{t 'app_foot.before_link'}}
