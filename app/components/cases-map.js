@@ -60,7 +60,7 @@ export default class CasesMapComponent extends Component {
   radius(key, value) {
     let scale = d3.scaleSqrt()
       .domain([0, this.latestUpdate['runningTotal']])
-      .range([0, 120]);
+      .range([0, this.args.bubbleRadius]);
     return scale(value);
   };
 
@@ -186,7 +186,7 @@ export default class CasesMapComponent extends Component {
     .attr('stroke-width', 0.5)
     .attr('fill', '#FFF')
     .attr("fill-opacity", 1.0)
-    .attr("font-size", '2.8em')
+    .attr("font-size", this.fontSize)
     .selectAll('tspan')
     .data(geoJson.features)
     .join('tspan')
