@@ -30,6 +30,11 @@ $snapshot-table-cell-width: 10%;
   height: 100%;
 }
 
+.map > svg > text > tspan{
+  text-anchor: middle;
+  color: $body-color;
+}
+
 .map#western-group {
   margin-right: -20%;
   flex: 0 0 18%;

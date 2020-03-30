@@ -6,7 +6,9 @@ module('Unit | Service | geojson', function(hooks) {
 
   test('it contains geoJson', function(assert) {
     let service = this.owner.lookup('service:geojson');
-    assert.equal(service.data.type, 'FeatureCollection');
+    assert.equal(service.westernGroup.type, 'FeatureCollection');
+    assert.equal(service.centralGroup.type, 'FeatureCollection');
+    assert.equal(service.easternGroup.type, 'FeatureCollection');
   });
 
 });
