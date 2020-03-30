@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1>{{t 'app_title'}}</h1>
+  <h1 class='display-2'>{{t 'app_title'}}</h1>
   <p class='lead'>
     {{t 'app_lead.before_link'}}
     <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
@@ -9,18 +9,21 @@
   </p>
   <div class='container map-container'>
     <div class='row'>
-      <CasesMap @class={{'col-3 map align-self-start'}} @id={{'western-group'}} @mapKey={{'westernGroup'}} @data={{model}} @longitude={{-29.0}} @latitude={{39.1}} @scale={{10000}}/>
-      <CasesMap @class={{'col-9 map align-self-center'}} @id={{'central-group'}} @mapKey={{'centralGroup'}} @data={{model}} @longitude={{-28.3}} @latitude={{38.7}} @scale={{12000}}/>
-      <CasesMap @class={{'col-3 map align-self-end'}} @id={{'eastern-group'}} @mapKey={{'easternGroup'}} @data={{model}} @longitude={{-22.75}} @latitude={{36.92}} @scale={{8000}}/>
+      <CasesMap @class={{'col-2 map'}} @id={{'western-group'}}
+        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.5}}/>
+      <CasesMap @class={{'col-8 map'}} @id={{'central-group'}}
+        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}}/>
+      <CasesMap @class={{'col-2 map'}} @id={{'eastern-group'}}
+        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.9}}/>
     </div>
   </div>
   <div class='container'>
     <div class='row'>
       <div class='col'>
-        <TotalCasesChart @data={{model}}/>
+        <TotalCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
       </div>
       <div class='col'>
-        <DailyCasesChart @data={{model}} />
+        <DailyCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
       </div>
     </div>
   </div>
