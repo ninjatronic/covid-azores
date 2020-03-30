@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class CasesMapComponent extends Component {
   @service geojson;
+  @service constants;
 
   @action
   renderMap(element) {
@@ -25,7 +26,7 @@ export default class CasesMapComponent extends Component {
 			.enter()
 			.append("path")
 			.attr("d", path)
-			.attr("fill", "green")
+			.attr("fill", d => `${this.constants.colors[d.properties.id]}`)
 			.attr("fill-opacity", 0.5)
 			.attr("stroke", "#222");
   }

@@ -477,7 +477,7 @@ export default class GeojsonService extends Service {
       },{
         "type":"Feature",
         "properties":{
-          "id": "saojorge",
+          "id": "saoJorge",
           "name":"São Jorge"
         },
         "geometry":{
@@ -912,7 +912,7 @@ export default class GeojsonService extends Service {
       {
         "type":"Feature",
         "properties":{
-          "id": "santamaria",
+          "id": "santaMaria",
           "name":"Santa Maria"
         },
         "geometry":{
@@ -1003,7 +1003,7 @@ export default class GeojsonService extends Service {
       },{
         "type":"Feature",
         "properties":{
-          "id": "saomiguel",
+          "id": "saoMiguel",
           "name":"São Miguel"
         },
         "geometry":{
