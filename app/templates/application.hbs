@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1>{{t 'app_title'}}</h1>
+  <h1 class='display-3'>{{t 'app_title'}}</h1>
   <p class='lead'>
     {{t 'app_lead.before_link'}}
     <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
@@ -7,11 +7,54 @@
     </a>
     {{t 'app_lead.after_link'}}
   </p>
-  <Snapshot @data={{model}} />
-  <TotalCasesChart @data={{model}} />
-  <br/>
-  <DailyCasesChart @data={{model}} />
-  <br />
+  <div class='container map-container d-none d-lg-block d-xl-block'>
+    <div class='row justify-content-center'>
+      <CasesMap @class={{'col-2 map align-self-start'}} @id={{'western-group'}}
+        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.4}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+      <CasesMap @class={{'col-6 map align-self-center'}} @id={{'central-group'}}
+        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+      <CasesMap @class={{'col-2 map align-self-end'}} @id={{'eastern-group'}}
+        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+    </div>
+  </div>
+  <div class='container map-container-small'>
+    <div class='row d-lg-none d-xl-none'>
+      <CasesMap @class={{'col map'}} @id={{'eastern-group-mobile'}}
+        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+    </div>
+    <div class='row d-lg-none d-xl-none'>
+      <CasesMap @class={{'col map'}} @id={{'central-group-mobile'}}
+        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+    </div>
+    <div class='row d-lg-none d-xl-none'>
+      <CasesMap @class={{'col map'}} @id={{'western-group-mobile'}}
+        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.5}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+    </div>
+  </div>
+  <div class='container total-container  d-none d-lg-block d-xl-block'>
+    <div class='row'>
+      <div class='col'>
+        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
+      </div>
+    </div>
+  </div>
+  <div class='container total-container-small d-lg-none d-xl-none'>
+    <div class='row'>
+      <div class='col'>
+        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
+      </div>
+    </div>
+  </div>
+  <div class='container chart-container'>
+    <div class='row'>
+      <div class='col'>
+        <TotalCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+      </div>
+      <div class='col'>
+        <DailyCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+      </div>
+    </div>
+  </div>
   <p class='text-center'>
     <small>
       {{t 'app_foot.before_link'}}
