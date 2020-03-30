@@ -11,12 +11,25 @@ $snapshot-table-cell-width: 10%;
   margin-top: -100px;
 }
 
-.chart-container {
+.total {
   margin-top: -60px;
+}
+
+.total-container {
+  margin-top: -138px;
+}
+
+.total-container > p {
+  margin-top: -80px;
 }
 
 .map-container > .row {
   height: 100%;
+}
+
+.chart-container {
+  padding-top: 12px;
+  border-top: 2px solid $text-muted
 }
 
 .map {
