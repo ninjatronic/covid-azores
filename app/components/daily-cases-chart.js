@@ -2,6 +2,9 @@ import CasesChartComponent from 'covid-azores/components/cases-chart'
 
 export default class TotalCasesChartComponent extends CasesChartComponent {
   options = {
+    legend: {
+      display: false
+    },
     dataSets: {
       totals: 'total',
       saoMiguel: 'saoMiguel',
