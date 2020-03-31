@@ -10,25 +10,31 @@
   <div class='container map-container d-none d-lg-block d-xl-block'>
     <div class='row justify-content-center'>
       <CasesMap @class={{'col-2 map align-self-start'}} @id={{'western-group'}}
-        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.4}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+        @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
+        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
       <CasesMap @class={{'col-6 map align-self-center'}} @id={{'central-group'}}
-        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+        @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
+        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
       <CasesMap @class={{'col-2 map align-self-end'}} @id={{'eastern-group'}}
-        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+        @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
+        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{120}}/>
     </div>
   </div>
   <div class='container map-container-small'>
     <div class='row d-lg-none d-xl-none'>
       <CasesMap @class={{'col map'}} @id={{'eastern-group-mobile'}}
-        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+        @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
+        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{80}}/>
     </div>
     <div class='row d-lg-none d-xl-none'>
       <CasesMap @class={{'col map'}} @id={{'central-group-mobile'}}
-        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+        @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
+        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{80}}/>
     </div>
     <div class='row d-lg-none d-xl-none'>
       <CasesMap @class={{'col map'}} @id={{'western-group-mobile'}}
-        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.5}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
+        @geoJson={{westernGroupGeoJson}} @scale={{0.5}}
+        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{80}}/>
     </div>
   </div>
   <div class='container total-container  d-none d-lg-block d-xl-block'>

@@ -42,6 +42,42 @@ $snapshot-table-cell-width: 10%;
   padding-left: 0px !important;
 }
 
+path#flores {
+  fill: #0081CF;
+}
+
+path#corvo {
+  fill: #004F96;
+}
+
+path#graciosa {
+  fill: #3FDA68;
+}
+
+path#saoJorge {
+  fill: #005100;
+}
+
+path#pico {
+  fill: #00982B;
+}
+
+path#terceira {
+  fill: #00BD4E;
+}
+
+path#faial {
+  fill: #007401;
+}
+
+path#santaMaria {
+  fill: #6f42c1;
+}
+
+path#saoMiguel {
+  fill: #6610f2;
+}
+
 #eastern-group-mobile {
   height: 300px;
 }
@@ -56,14 +92,46 @@ $snapshot-table-cell-width: 10%;
   margin-top: -100px;
 }
 
-.map > svg {
-  width: 100%;
-  height: 100%;
-}
-
 .map > svg > text > tspan {
   text-anchor: middle;
-  color: $body-color;
+  stroke: $body-color;
+  stroke-width: 0.5;
+  fill: $body-color;
+  fill-opacity: 1.0;
+  font-size: 1.0em;
+
+  .large {
+    font-size: 3.0em
+  }
+}
+
+.map > svg > text > tspan.large {
+  font-size: 2.5em
+}
+
+.map > svg > g > circle {
+  fill-opacity: 0.8;
+  stroke-width: 0.8;
+}
+
+.map > svg > g > circle.lowest {
+  fill: #FD7E14;
+}
+
+.map > svg > g > circle.low {
+  fill: #D25B00;
+}
+
+.map > svg > g > circle.mid {
+  fill: #A83900;
+}
+
+.map > svg > g > circle.high {
+  fill: #811200;
+}
+
+.map > svg > g > circle.highest {
+  fill: #5E0000;
 }
 
 @import "ember-bootstrap/bootstrap";
