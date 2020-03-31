@@ -69,6 +69,9 @@ export default class CasesMapComponent extends MapComponent {
         .attr('class', d => this.circleClass(d))
         .attr("stroke", d => this.circleClass(d))
         .attr("transform", d => `translate(${path.centroid(d)})`)
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(500)
         .attr("r", d => {
           let key = `${d.properties.id}RunningTotal`;
           return this.radius(d.properties.id, this.args.latestUpdate[key]);
