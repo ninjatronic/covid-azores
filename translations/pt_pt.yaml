@@ -11,3 +11,7 @@ app_foot:
 
 daily_cases: 'Casos Diários'
 total_cases: 'Total de Casos'
+
+western_group: Grupo Ocidental
+central_group: Grupo Central
+eastern_group: Grupo Oriental

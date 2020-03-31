@@ -7,44 +7,35 @@
     </a>
     {{t 'app_lead.after_link'}}
   </p>
-  <div class='container map-container d-none d-lg-block d-xl-block'>
+  <div class='container'>
     <div class='row justify-content-center'>
-      <CasesMap @class={{'col-2 map align-self-start'}} @id={{'western-group'}}
-        @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
-        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
-      <CasesMap @class={{'col-6 map align-self-center'}} @id={{'central-group'}}
-        @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
-        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
-      <CasesMap @class={{'col-2 map align-self-end'}} @id={{'eastern-group'}}
-        @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
-        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{120}}/>
+      <figure class='figure col-md-2'>
+        <CasesMap @class={{'map'}} @id={{'western-group'}}
+          @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
+          @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
+        <figcaption class='figure-caption'>
+          {{t 'western_group'}}
+        </figcaption>
+      </figure>
+      <figure class='figure col-md-7'>
+        <CasesMap @class={{'map'}} @id={{'central-group'}}
+          @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
+          @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
+        <figcaption class='figure-caption'>
+          {{t 'central_group'}}
+        </figcaption>
+      </figure>
+      <figure class='figure col-md-3 figure-end'>
+        <CasesMap @class={{'map'}} @id={{'eastern-group'}}
+          @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
+          @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{120}}/>
+        <figcaption class='figure-caption'>
+          {{t 'eastern_group'}}
+        </figcaption>
+      </figure>
     </div>
   </div>
-  <div class='container map-container-small'>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'eastern-group-mobile'}}
-        @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
-        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{80}}/>
-    </div>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'central-group-mobile'}}
-        @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
-        @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{80}}/>
-    </div>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'western-group-mobile'}}
-        @geoJson={{westernGroupGeoJson}} @scale={{0.5}}
-        @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{80}}/>
-    </div>
-  </div>
-  <div class='container total-container  d-none d-lg-block d-xl-block'>
-    <div class='row'>
-      <div class='col'>
-        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
-      </div>
-    </div>
-  </div>
-  <div class='container total-container-small d-lg-none d-xl-none'>
+  <div class='container total-container'>
     <div class='row'>
       <div class='col'>
         <TotalCasesLabel @class={{'display-4'}} @data={{model}} />

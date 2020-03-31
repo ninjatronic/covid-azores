@@ -58,7 +58,7 @@ export default class CasesChartComponent extends Component {
 
   @computed('this.sortedData.@each.total')
   get totalsDataSet() {
-    return this.getDataSet(this.options.dataSets.totals, this.intl.t('total_cases'), true, this.constants.colors.totals);
+    return this.getDataSet(this.options.dataSets.totals, this.intl.t('total_cases'), false, this.constants.colors.totals);
   }
 
   @computed('this.sortedData.@each.saoMiguel')
