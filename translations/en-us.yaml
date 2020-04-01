@@ -11,7 +11,20 @@ app_foot:
 
 daily_cases: 'Daily Cases'
 total_cases: 'Total Cases'
+cases_on: 'Cases on'
 
 western_group: Western Group
 central_group: Central Group
 eastern_group: Eastern Group
+
+saoMiguel: São Miguel
+santaMaria: Santa Maria
+terceira: Terceira
+graciosa: Graciosa
+faial: Faial
+saoJorge: São Jorge
+pico: Pico
+flores: Flores
+corvo: Corvo
+
+clear_selection: Clear selection

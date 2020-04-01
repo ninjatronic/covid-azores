@@ -10,45 +10,99 @@
   <div class='container'>
     <div class='row justify-content-center'>
       <figure class='figure col-md-2'>
-        <CasesMap @class={{'map'}} @id={{'western-group'}}
+        <Map @class={{'map'}} @id={{'western-group'}}
           @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
-          @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{{action 'select'}}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
         <figcaption class='figure-caption'>
           {{t 'western_group'}}
         </figcaption>
       </figure>
       <figure class='figure col-md-7'>
-        <CasesMap @class={{'map'}} @id={{'central-group'}}
+        <Map @class={{'map'}} @id={{'central-group'}}
           @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
-          @latestUpdate={{latestUpdate}} @maxCases={{maxCases}} @bubbleRadius={{120}}/>
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{action 'select'}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
         <figcaption class='figure-caption'>
           {{t 'central_group'}}
         </figcaption>
       </figure>
       <figure class='figure col-md-3 figure-end'>
-        <CasesMap @class={{'map'}} @id={{'eastern-group'}}
+        <Map @class={{'map'}} @id={{'eastern-group'}}
           @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
-          @latestUpdate={{latestUpdate}} @bubbleRadius={{120}} @bubbleRadius={{120}}/>
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{action 'select'}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
         <figcaption class='figure-caption'>
           {{t 'eastern_group'}}
         </figcaption>
       </figure>
     </div>
   </div>
-  <div class='container total-container'>
-    <div class='row'>
-      <div class='col'>
-        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
+  {{#if selected}}
+    <div class='container'>
+      <div class='row'>
+        <div class='col-9'>
+          <h1 class='display-4'>
+            {{t 'cases_on'}}
+            <span class={{selected}}>
+              {{t selected}}
+            </span>: {{selectedTotal}}
+          </h1>
+        </div>
+        <div class='col-3'>
+          <h1 class='display-4 text-right'>
+            <a class='clear-selection' {{action 'clearSelection'}}>
+                {{t 'clear_selection'}}
+            </a>
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
+  {{else}}
+    <div class='container'>
+      <div class='row'>
+        <div class='col'>
+          <h1 class='display-4'>
+            {{t 'total_cases'}}: {{latestUpdate.runningTotal}}
+          </h1>
+        </div>
+      </div>
+    </div>
+  {{/if}}
   <div class='container chart-container'>
     <div class='row'>
       <div class='col'>
-        <TotalCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+        <TotalCasesChart
+          @data={{model}}
+          @class={{'text-muted display-5'}}
+          @selected={{selected}}/>
       </div>
       <div class='col'>
-        <DailyCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+        <DailyCasesChart
+          @data={{model}}
+          @class={{'text-muted display-5'}}
+          @selected={{selected}}/>
       </div>
     </div>
   </div>

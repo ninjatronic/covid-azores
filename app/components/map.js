@@ -1,11 +1,31 @@
 import Component from '@glimmer/component';
 import { action, computed } from '@ember/object';
+import EmberObject from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class MapComponent extends Component {
+  @tracked path;
+  @tracked projection;
 
   @computed('this.args.geoJson')
   get geoJson() {
     return this.args.geoJson;
+  }
+
+  @computed('geoJson.features[]', 'path')
+  get features() {
+    let path = this.path;
+    let features = [];
+    this.geoJson.features.forEach((feature, i) => {
+      if(path) {
+        feature.d = path(feature);
+        feature.centroid = path.centroid(feature);
+        feature.centroidX = feature.centroid[0];
+        feature.centroidY = feature.centroid[1];
+      }
+      features.push(EmberObject.create(feature));
+    });
+    return this.geoJson.features;
   }
 
   /*
@@ -47,59 +67,6 @@ export default class MapComponent extends Component {
       .projection(projection);
   };
 
-  beforeUpdate(path, map) {
-
-  };
-
-  updateFeatures(path, map) {
-		var features = map
-      .selectAll('path')
-			.data(this.geoJson.features)
-			.enter();
-
-    features
-			.append('path')
-      .merge(features)
-			.attr('d', path)
-      .each((d, i, el) => {
-        for(var key in d.properties) {
-          el[i][key] = d.properties[key];
-        }
-      });
-
-    features
-      .exit()
-      .remove();
-  }
-
-  updateLabels(path, map) {
-    var labelKeys = this.args.labelKeys;
-		var labels = map
-        .append('text')
-        .selectAll('tspan')
-  			.data(this.geoJson.features)
-        .enter();
-
-    labels = labels
-        .append('tspan')
-        .merge(labels);
-
-    labels
-      .text(d => d.properties.name)
-      .attr('x', d => path.centroid(d)[0])
-      .attr('y', d => path.centroid(d)[1])
-
-    labels
-      .exit()
-      .remove();
-  }
-
-  updateMap(path, map) {
-      this.beforeUpdate(path, map);
-      this.updateFeatures(path, map);
-      this.updateLabels(path, map);
-  };
-
   @action
   renderMap(element) {
     var width = element.getBoundingClientRect().width;
@@ -126,11 +93,14 @@ export default class MapComponent extends Component {
     path = this.getPath(projection);
 
     // create svg element and expand to fill component
-    var map = d3.select(`#${this.args.id}`)
-      .append('svg')
-      .attr('width', '100%')
-      .attr('height', '100%');
+    var map = d3.select(`#${this.args.id}`);
 
-    this.updateMap.call(this, path, map);
+    this.path = path;
+    this.projection = path;
+  }
+
+  @action
+  click() {
+    this.args.onClick();
   }
 }

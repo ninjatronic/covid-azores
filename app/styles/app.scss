@@ -1,14 +1,5 @@
 @import "./_variables.scss";
-
-$snapshot-table-cell-width: 10%;
-
-.snapshot-table-cell {
-  width: $snapshot-table-cell-width;
-}
-
-.total {
-  margin-top: -60px;
-}
+@import "./_keyframes.scss";
 
 .map-container > .row {
   height: 100%;
@@ -19,15 +10,15 @@ $snapshot-table-cell-width: 10%;
   border-right: 0px;
   padding-right: 0px !important;
   padding-left: 0px !important;
-}
 
-.figure-end {
-  border-right: 2px solid $text-muted;
-}
+  .figure-caption {
+    margin-bottom: 0.8em;
+    padding-left: 15px;
+  }
 
-.figure-caption {
-  margin-bottom: 0.8em;
-  padding-left: 15px;
+  &.figure-end {
+    border-right: 2px solid $text-muted;
+  }
 }
 
 .chart-container {
@@ -35,191 +26,174 @@ $snapshot-table-cell-width: 10%;
   border-top: 2px solid $text-muted;
 }
 
+span {
+  &.corvo {
+    color: $corvo;
+  }
+
+  &.flores {
+    color: $flores;
+  }
+
+  &.graciosa {
+    color: $graciosa;
+  }
+
+  &.terceira {
+    color: $terceira;
+  }
+
+  &.saoJorge {
+    color: $saoJorge;
+  }
+
+  &.pico {
+    color: $pico;
+  }
+
+  &.faial {
+    color: $faial;
+  }
+
+  &.saoMiguel {
+    color: $saoMiguel;
+  }
+
+  &.santaMaria {
+    color: $santaMaria;
+  }
+}
+
+.clear-selection {
+  font-size: 0.4em;
+  color: $link-color !important;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .map {
   height: 450px;
   padding-right: 0px !important;
   padding-left: 0px !important;
-}
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+  path {
+    cursor: pointer;
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+    -webkit-animation: fadein $animation_duration;
+       -moz-animation: fadein $animation_duration;
+        -ms-animation: fadein $animation_duration;
+         -o-animation: fadein $animation_duration;
+            animation: fadein $animation_duration;
 
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+    &.unselected {
+      fill: $gray-700 !important;
+    }
 
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+    &#flores {
+      fill: $flores;
+    }
 
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+    &#corvo {
+    fill: $corvo;
+    }
 
-path#flores {
-  fill: #0081CF;
+    &#graciosa {
+    fill: $graciosa;
+    }
 
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
+    &#saoJorge {
+    fill: $saoJorge;
+    }
 
-path#corvo {
-  fill: #004F96;
+    &#pico {
+    fill: $pico;
+    }
 
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
+    &#terceira {
+    fill: $terceira;
+    }
 
-path#graciosa {
-  fill: #3FDA68;
+    &#faial {
+    fill: $faial;
+    }
 
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
+    &#santaMaria {
+    fill: $santaMaria;
+    }
 
-path#saoJorge {
-  fill: #005100;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-path#pico {
-  fill: #00982B;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-path#terceira {
-  fill: #00BD4E;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-path#faial {
-  fill: #007401;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-path#santaMaria {
-  fill: #6f42c1;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-path#saoMiguel {
-  fill: #6610f2;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-}
-
-#eastern-group-mobile {
-  height: 300px;
-}
-
-#central-group-mobile {
-  height: 250px;
-  margin-top: -100px;
-}
-
-#western-group-mobile {
-  height: 250px;
-  margin-top: -100px;
-}
-
-.map > svg > text > tspan {
-  text-anchor: middle;
-  stroke: $body-color;
-  stroke-width: 0.5;
-  fill: $body-color;
-  fill-opacity: 1.0;
-  font-size: 1.0em;
-
-  -webkit-animation: fadein 0.5s;
-     -moz-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-       -o-animation: fadein 0.5s;
-          animation: fadein 0.5s;
-
-  .large {
-    font-size: 3.0em
+    &#saoMiguel {
+    fill: $saoMiguel;
+    }
   }
-}
 
-.map > svg > text > tspan.large {
-  font-size: 2.5em
-}
+  text > tspan {
+    text-anchor: middle;
+    stroke: $body-color;
+    stroke-width: 0.5;
+    fill: $body-color;
+    fill-opacity: 1.0;
+    font-size: 1.0em;
+    cursor: pointer;
 
-.map > svg > g > circle {
-  fill-opacity: 0.8;
-  stroke-width: 0.8;
-}
+    -webkit-animation: fadein $animation_duration;
+       -moz-animation: fadein $animation_duration;
+        -ms-animation: fadein $animation_duration;
+         -o-animation: fadein $animation_duration;
+            animation: fadein $animation_duration;
 
-.map > svg > g > circle.lowest {
-  fill: #FD7E14;
-}
+    &.unselected {
+      stroke: $text-muted !important;
+      fill: $text-muted !important;
+    }
 
-.map > svg > g > circle.low {
-  fill: #D25B00;
-}
+    -webkit-animation: fadein 0.5s;
+       -moz-animation: fadein 0.5s;
+        -ms-animation: fadein 0.5s;
+         -o-animation: fadein 0.5s;
+            animation: fadein 0.5s;
 
-.map > svg > g > circle.mid {
-  fill: #A83900;
-}
+    &.large {
+      font-size: 2.5em
+    }
+  }
 
-.map > svg > g > circle.high {
-  fill: #811200;
-}
+  circle {
+    fill-opacity: 0.8;
+    stroke-width: 0.8;
+    cursor: pointer;
 
-.map > svg > g > circle.highest {
-  fill: #5E0000;
+    -webkit-animation: fadein $animation_duration;
+       -moz-animation: fadein $animation_duration;
+        -ms-animation: fadein $animation_duration;
+         -o-animation: fadein $animation_duration;
+            animation: fadein $animation_duration;
+
+    &.unselected {
+      stroke: $gray-800 !important;
+      fill: $gray-800 !important;
+    }
+
+    &.lowest {
+      fill: #FD7E14;
+    }
+
+    &.low {
+      fill: #D25B00;
+    }
+
+    &.mid {
+      fill: #A83900;
+    }
+
+    &.high {
+      fill: #811200;
+    }
+
+    &.highest {
+      fill: #5E0000;
+    }
+  }
 }
 
 @import "ember-bootstrap/bootstrap";

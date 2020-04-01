@@ -1,9 +1,17 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
   @service geojson;
+
+  @tracked selected;
+
+  @computed('selected', 'latestUpdate')
+  get selectedTotal() {
+    return this.latestUpdate[`${this.selected}RunningTotal`];
+  }
 
   @computed('geojson.westernGroup')
   get westernGroupGeoJson() {
@@ -65,5 +73,15 @@ export default class ApplicationController extends Controller {
       max = latestUpdate.corvoRunningTotal;
     }
     return max;
+  }
+
+  @action
+  select(id) {
+    this.selected = id;
+  }
+
+  @action
+  clearSelection() {
+    this.selected = undefined;
   }
 }

@@ -26,6 +26,11 @@ export default class CasesChartComponent extends Component {
     this.type = 'line';
   }
 
+  @computed('args.selected')
+  get selected() {
+    return this.args.selected;
+  }
+
   @computed('this.args.data.@each.date')
   get sortedData() {
     return this.args.data.sortBy('date');
@@ -108,11 +113,14 @@ export default class CasesChartComponent extends Component {
 
   @computed('this.labels', 'this.totalsDataSet', 'this.saoMiguelDataSet', 'this.santaMariaSataSet',
     'this.faialDataSet', 'this.terceiraDataSet', 'this.picoDataSet', 'this.saoJorgeDataSet',
-    'this.graciosaDataSet', 'this.floresDataSet', 'this.corvoDataSet')
+    'this.graciosaDataSet', 'this.floresDataSet', 'this.corvoDataSet', 'selected')
   get chartData() {
-    return {
-      labels: this.labels,
-      datasets: [
+    let selected = this.selected;
+    let chartData = {
+      labels: this.labels
+    };
+    if(!selected) {
+      chartData.datasets = [
         this.totalsDataSet,
         this.saoMiguelDataSet,
         this.santaMariaDataSet,
@@ -123,8 +131,14 @@ export default class CasesChartComponent extends Component {
         this.graciosaDataSet,
         this.floresDataSet,
         this.corvoDataSet
-      ]
+      ];
+    } else {
+      chartData.datasets = [
+        this.totalsDataSet,
+        this[`${selected}DataSet`]
+      ];
     }
+    return chartData;
   }
 
   @computed()

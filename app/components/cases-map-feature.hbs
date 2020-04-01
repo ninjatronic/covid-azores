@@ -1,0 +1,15 @@
+<circle class={{circleClass}} transform={{circleTransform}} r={{circleRadius}} {{on 'click' this.click}}/>
+<path d={{@feature.d}} id={{@feature.properties.id}} {{on 'click' this.click}} class={{selectedClass}}>
+</path>
+<text>
+  {{#if feature.centroid}}
+    {{#if caseCount}}
+      <tspan x={{@feature.centroidX}} y={{@feature.centroidY}} class='large' {{on 'click' this.click}}>
+        {{caseCount}}
+      </tspan>
+    {{/if}}
+    <tspan x={{@feature.centroidX}} y={{offsetCentroidY}} class={{selectedClass}} {{on 'click' this.click}}>
+      {{@feature.properties.name}}
+    </tspan>
+  {{/if}}
+</text>
