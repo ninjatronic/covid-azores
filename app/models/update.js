@@ -26,4 +26,7 @@ export default class UpdateModel extends Model {
   @attr('number') floresRunningTotal;
   @attr('number') corvoRunningTotal;
 
+  @attr('number') male;
+  @attr('number') female;
+
 }

@@ -6,12 +6,17 @@ app_lead:
   after_link: e se isole.
 
 app_foot:
-  before_link: Feito por Pete Martin, 2020. Se você achou isso útil, considere
+  before_link: Se você achou isso útil, considere
   link: comprar um café para mim
 
-daily_cases: 'Casos Diários'
-total_cases: 'Total de Casos'
-cases_on: 'Casos em'
+daily_cases: Casos Diários
+total_cases: Total de Casos
+cases_on: Casos em
+cases_by_gender: Casos por Gênero
+
+genders: Gêneros
+male: Masculino
+female: Fêmeo
 
 western_group: Grupo Ocidental
 central_group: Grupo Central
