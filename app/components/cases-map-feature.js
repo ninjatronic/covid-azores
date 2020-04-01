@@ -40,7 +40,9 @@ export default class CasesMapFeatureComponent extends MapFeatureComponent {
 
     let rank = 'lowest';
 
-    if(ratio < 0.4) {
+    if(ratio < 0.2) {
+      rank = 'lowest';
+    } else if(ratio < 0.4) {
       rank = 'low';
     } else if(ratio < 0.6) {
       rank = 'mid';
