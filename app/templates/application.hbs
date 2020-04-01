@@ -7,51 +7,102 @@
     </a>
     {{t 'app_lead.after_link'}}
   </p>
-  <div class='container map-container d-none d-lg-block d-xl-block'>
+  <div class='container'>
     <div class='row justify-content-center'>
-      <CasesMap @class={{'col-2 map align-self-start'}} @id={{'western-group'}}
-        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.4}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
-      <CasesMap @class={{'col-6 map align-self-center'}} @id={{'central-group'}}
-        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
-      <CasesMap @class={{'col-2 map align-self-end'}} @id={{'eastern-group'}}
-        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}} @bubbleRadius={{120}} @fontSize={{'2.8em'}}/>
+      <figure class='figure col-md-2'>
+        <Map @class={{'map'}} @id={{'western-group'}}
+          @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{{action 'select'}}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
+        <figcaption class='figure-caption'>
+          {{t 'western_group'}}
+        </figcaption>
+      </figure>
+      <figure class='figure col-md-7'>
+        <Map @class={{'map'}} @id={{'central-group'}}
+          @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{action 'select'}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
+        <figcaption class='figure-caption'>
+          {{t 'central_group'}}
+        </figcaption>
+      </figure>
+      <figure class='figure col-md-3 figure-end'>
+        <Map @class={{'map'}} @id={{'eastern-group'}}
+          @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
+          @onClick={{action 'clearSelection'}}
+          as |feature featureArgs|>
+          <CasesMapFeature @feature={{feature}}
+            @onClick={{action 'select'}}
+            @bubbleRadius={{80}}
+            @latestUpdate={{latestUpdate}}
+            @maxCases={{maxCases}}
+            @selected={{selected}}/>
+        </Map>
+        <figcaption class='figure-caption'>
+          {{t 'eastern_group'}}
+        </figcaption>
+      </figure>
     </div>
   </div>
-  <div class='container map-container-small'>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'eastern-group-mobile'}}
-        @mapKey={{'easternGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
-    </div>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'central-group-mobile'}}
-        @mapKey={{'centralGroup'}} @data={{model}} @scale={{0.7}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
-    </div>
-    <div class='row d-lg-none d-xl-none'>
-      <CasesMap @class={{'col map'}} @id={{'western-group-mobile'}}
-        @mapKey={{'westernGroup'}} @data={{model}} @scale={{0.5}}  @bubbleRadius={{80}} @fontSize={{'2.2em'}}/>
-    </div>
-  </div>
-  <div class='container total-container  d-none d-lg-block d-xl-block'>
-    <div class='row'>
-      <div class='col'>
-        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
+  {{#if selected}}
+    <div class='container'>
+      <div class='row'>
+        <div class='col-9'>
+          <h1 class='display-4'>
+            {{t 'cases_on'}}
+            <span class={{selected}}>
+              {{t selected}}
+            </span>: {{selectedTotal}}
+          </h1>
+        </div>
+        <div class='col-3'>
+          <h1 class='display-4 text-right'>
+            <a class='clear-selection' {{action 'clearSelection'}}>
+                {{t 'clear_selection'}}
+            </a>
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
-  <div class='container total-container-small d-lg-none d-xl-none'>
-    <div class='row'>
-      <div class='col'>
-        <TotalCasesLabel @class={{'display-4'}} @data={{model}} />
+  {{else}}
+    <div class='container'>
+      <div class='row'>
+        <div class='col'>
+          <h1 class='display-4'>
+            {{t 'total_cases'}}: {{latestUpdate.runningTotal}}
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
+  {{/if}}
   <div class='container chart-container'>
     <div class='row'>
       <div class='col'>
-        <TotalCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+        <TotalCasesChart
+          @data={{model}}
+          @class={{'text-muted display-5'}}
+          @selected={{selected}}/>
       </div>
       <div class='col'>
-        <DailyCasesChart @data={{model}} @class={{'text-muted display-5'}}/>
+        <DailyCasesChart
+          @data={{model}}
+          @class={{'text-muted display-5'}}
+          @selected={{selected}}/>
       </div>
     </div>
   </div>
