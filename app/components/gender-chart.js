@@ -18,7 +18,6 @@ export default class GenderChartComponent extends Component {
 
   @computed('args.latestUpdate.male', 'args.latestUpdate.female')
   get genderData() {
-    console.log(this.args.latestUpdate);
     if(this.args.latestUpdate) {
       return [this.args.latestUpdate.male, this.args.latestUpdate.female];
     }
