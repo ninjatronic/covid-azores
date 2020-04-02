@@ -10,7 +10,7 @@ export default class DeadRecoveredChartComponent extends Component {
 
   options = {
     legend: {
-      display: false
+      display: true
     },
     dataSets: {
       totals: 'runningTotal',
