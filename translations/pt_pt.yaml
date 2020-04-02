@@ -1,17 +1,29 @@
 app_title: COVID-19 Açores
 
 app_lead:
-  before_link: Se você tiver tosse seca e febre ou tiver dificuldade em respirar, ligue para
-  link: Linha Saude Acores 808 24 60 24
-  after_link: e se isole.
+  before_link: Se tiver tosse seca e febre ou tiver dificuldade em respirar, ligue para
+  link: Linha Saude Açores 808 24 60 24
+  after_link: e isole-se.
 
 app_foot:
-  before_link: Feito por Pete Martin, 2020. Se você achou isso útil, considere
+  before_link: Se achou isto útil, considere
   link: comprar um café para mim
 
-daily_cases: 'Casos Diários'
-total_cases: 'Total de Casos'
-cases_on: 'Casos em'
+daily_cases: Casos Diários
+total_cases: Total de Casos
+cases_on: Casos em
+cases_by_gender: Casos por Gênero
+cases_by_age: Casos por Idade
+cases_dead_recovered: Óbitos e Recuperados
+cases_dead: Óbitos
+cases_recovered: Recuperados
+cases_infected: Infetados
+cases_suspected: Suspeitos
+cases_monitored: Em vigilância ativa
+
+genders: Gêneros
+male: Masculino
+female: Fêmeo
 
 western_group: Grupo Ocidental
 central_group: Grupo Central
@@ -27,4 +39,4 @@ pico: Pico
 flores: Flores
 corvo: Corvo
 
-clear_selection: Clarea seleção
+clear_selection: Limpar seleção

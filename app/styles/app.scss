@@ -10,6 +10,7 @@
   border-right: 0px;
   padding-right: 0px !important;
   padding-left: 0px !important;
+  margin-right: -2px;
 
   .figure-caption {
     margin-bottom: 0.8em;
@@ -24,6 +25,15 @@
 .chart-container {
   padding-top: 12px;
   border-top: 2px solid $text-muted;
+}
+
+.chart-row {
+  padding-bottom: 12px;
+}
+
+.table {
+  width: 100%;
+  font-size: 1.4em;
 }
 
 span {
@@ -70,6 +80,8 @@ span {
   text-decoration: none;
   background-color: transparent;
   cursor: pointer;
+  float:right;
+  margin-top:36px;
 }
 
 .map {

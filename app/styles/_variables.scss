@@ -37,12 +37,6 @@ $danger:        $red !default;
 $light:         $gray-500 !default;
 $dark:          $gray-800 !default;
 
-$lowest: #FD7E14;
-$low: #D25B00;
-$mid: #A83900;
-$high: #811200;
-$highest: #5E0000;
-
 $yiq-contrasted-threshold:  175 !default;
 
 // Body
@@ -186,6 +180,13 @@ $close-text-shadow:                 none !default;
 
 $pre-color:                         inherit !default;
 
+// App colors
+
+$lowest: #FD7E14;
+$low: #D25B00;
+$mid: #A83900;
+$high: #811200;
+$highest: #5E0000;
 
 $flores:                            #0081CF;
 $corvo:                             #004F96;

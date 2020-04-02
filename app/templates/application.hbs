@@ -1,15 +1,19 @@
 <div class='container'>
-  <h1 class='display-3'>{{t 'app_title'}}</h1>
-  <p class='lead'>
-    {{t 'app_lead.before_link'}}
-    <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
-      {{t 'app_lead.link'}}
-    </a>
-    {{t 'app_lead.after_link'}}
-  </p>
   <div class='container'>
-    <div class='row justify-content-center'>
-      <figure class='figure col-md-2'>
+    <div class='row'>
+      <div class='col'>
+        <h1 class='display-4'>{{t 'app_title'}}</h1>
+        <p class='lead'>
+          {{t 'app_lead.before_link'}}
+          <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
+            {{t 'app_lead.link'}}
+          </a>
+          {{t 'app_lead.after_link'}}
+        </p>
+      </div>
+    </div>
+    <div class='row justify-content-center d-none d-md-block'>
+      <figure class='figure col-2'>
         <Map @class={{'map'}} @id={{'western-group'}}
           @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
           @onClick={{action 'clearSelection'}}
@@ -21,11 +25,11 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'western_group'}}
         </figcaption>
       </figure>
-      <figure class='figure col-md-7'>
+      <figure class='figure col-7'>
         <Map @class={{'map'}} @id={{'central-group'}}
           @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
           @onClick={{action 'clearSelection'}}
@@ -37,11 +41,11 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'central_group'}}
         </figcaption>
       </figure>
-      <figure class='figure col-md-3 figure-end'>
+      <figure class='figure col-3 figure-end'>
         <Map @class={{'map'}} @id={{'eastern-group'}}
           @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
           @onClick={{action 'clearSelection'}}
@@ -53,45 +57,161 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'eastern_group'}}
         </figcaption>
       </figure>
     </div>
-  </div>
-  {{#if selected}}
-    <div class='container'>
-      <div class='row'>
-        <div class='col-9'>
+    <div class='row d-none d-md-block'>
+      {{#if selected}}
+        <div class='col'>
           <h1 class='display-4'>
             {{t 'cases_on'}}
             <span class={{selected}}>
               {{t selected}}
             </span>: {{selectedTotal}}
+            <small class='clear-selection'>
+              <a {{action 'clearSelection'}}>
+                  {{t 'clear_selection'}}
+              </a>
+            </small>
           </h1>
         </div>
-        <div class='col-3'>
-          <h1 class='display-4 text-right'>
-            <a class='clear-selection' {{action 'clearSelection'}}>
-                {{t 'clear_selection'}}
-            </a>
-          </h1>
-        </div>
-      </div>
-    </div>
-  {{else}}
-    <div class='container'>
-      <div class='row'>
+      {{else}}
         <div class='col'>
           <h1 class='display-4'>
             {{t 'total_cases'}}: {{latestUpdate.runningTotal}}
           </h1>
         </div>
+      {{/if}}
+    </div>
+    <div class='row  d-md-none'>
+      <div class='col'>
+        <table class='table'>
+          <tr>
+            <th scope='row'>
+              <span>
+                {{t 'total_cases'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span>
+                {{latestUpdate.runningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='saoMiguel'>
+                {{t 'saoMiguel'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='saoMiguel'>
+                {{latestUpdate.saoMiguelRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='santaMaria'>
+                {{t 'santaMaria'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='santaMaria'>
+                {{latestUpdate.santaMariaRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='faial'>
+                {{t 'faial'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='faial'>
+                {{latestUpdate.faialRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='pico'>
+                {{t 'pico'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='pico'>
+                {{latestUpdate.picoRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='saoJorge'>
+                {{t 'saoJorge'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='saoJorge'>
+                {{latestUpdate.saoJorgeRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='terceira'>
+                {{t 'terceira'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='terceira'>
+                {{latestUpdate.terceiraRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='graciosa'>
+                {{t 'graciosa'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='graciosa'>
+                {{latestUpdate.graciosaRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='flores'>
+                {{t 'flores'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='flores'>
+                {{latestUpdate.floresRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='corvo'>
+                {{t 'corvo'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='corvo'>
+                {{latestUpdate.corvoRunningTotal}}
+              </span>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
-  {{/if}}
-  <div class='container chart-container'>
-    <div class='row'>
+    <div class='chart-container chart-row row align-items-end'>
       <div class='col'>
         <TotalCasesChart
           @data={{model}}
@@ -105,13 +225,41 @@
           @selected={{selected}}/>
       </div>
     </div>
+    <div class='chart-row row align-items-end'>
+      <div class='col'>
+        <GenderChart
+          @latestUpdate={{latestUpdate}}
+          @class={{'text-muted display-5'}} />
+      </div>
+      <div class='col'>
+        <AgeChart
+          @latestUpdate={{latestUpdate}}
+          @class={{'text-muted display-5'}} />
+      </div>
+    </div>
+    <div class='chart-row row align-items-end'>
+      <div class='col'>
+        <DeadRecoveredChart
+          @data={{model}}
+          @class={{'text-muted display-5'}} />
+      </div>
+      <div class='col'>
+        <SuspectedChart
+          @data={{model}}
+          @class={{'text-muted display-5'}} />
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col'>
+        <p class='text-center'>
+          <small>
+            {{t 'app_foot.before_link'}}
+            <a href='https://ko-fi.com/ninjatronic'>
+              {{t 'app_foot.link'}}
+            </a>.
+          </small>
+        </p>
+      </div>
+    </div>
   </div>
-  <p class='text-center'>
-    <small>
-      {{t 'app_foot.before_link'}}
-      <a href='https://ko-fi.com/ninjatronic'>
-        {{t 'app_foot.link'}}
-      </a>.
-    </small>
-  </p>
 </div>
