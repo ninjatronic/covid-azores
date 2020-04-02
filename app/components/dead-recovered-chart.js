@@ -86,7 +86,6 @@ export default class DeadRecoveredChartComponent extends Component {
     return {
       labels: this.labels,
       datasets: [
-        this.totalsDataSet,
         this.infectedDataSet,
         this.deadDataSet,
         this.recoveredDataSet
