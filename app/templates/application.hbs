@@ -213,7 +213,7 @@
         </table>
       </div>
     </div>
-    <div class='chart-container row'>
+    <div class='chart-container chart-row row align-items-end'>
       <div class='col'>
         <TotalCasesChart
           @data={{model}}
@@ -227,7 +227,7 @@
           @selected={{selected}}/>
       </div>
     </div>
-    <div class='row'>
+    <div class='chart-row row align-items-end'>
       <div class='col'>
         <GenderChart
           @latestUpdate={{latestUpdate}}
@@ -239,7 +239,7 @@
           @class={{'text-muted display-5'}} />
       </div>
     </div>
-    <div class='row'>
+    <div class='chart-row row align-items-end'>
       <div class='col'>
         <DeadRecoveredChart
           @data={{model}}
