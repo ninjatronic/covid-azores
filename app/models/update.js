@@ -43,4 +43,7 @@ export default class UpdateModel extends Model {
   @attr('number') dead;
   @attr('number') recovered;
 
+  @attr('number') suspected;
+  @attr('number') monitored;
+
 }

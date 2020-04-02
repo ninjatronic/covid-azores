@@ -18,6 +18,8 @@ cases_dead_recovered: Óbitos e Recuperados
 cases_dead: Óbitos
 cases_recovered: Recuperados
 cases_infected: Infetados
+cases_suspected: Suspeitos
+cases_monitored: Em vigilância ativa
 
 genders: Gêneros
 male: Masculino

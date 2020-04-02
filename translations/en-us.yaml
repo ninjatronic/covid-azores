@@ -18,6 +18,8 @@ cases_dead_recovered: Dead and Recovered
 cases_dead: Dead
 cases_recovered: Recovered
 cases_infected: Infected
+cases_suspected: Suspected
+cases_monitored: Monitored
 
 genders: Genders
 male: Male
