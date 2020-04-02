@@ -14,6 +14,10 @@ total_cases: Total Cases
 cases_on: Cases on
 cases_by_gender: Cases by Gender
 cases_by_age: Cases by Age
+cases_dead_recovered: Dead and Recovered
+cases_dead: Dead
+cases_recovered: Recovered
+cases_infected: Infected
 
 genders: Genders
 male: Male

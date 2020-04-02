@@ -32,6 +32,12 @@ export default class ConstantsService extends Service {
       group7: '#1B4CA0',
       group8: '#0C4E9B',
       group9: '#004F96'
+    },
+
+    status: {
+      dead: '#E53D00',
+      recovered: '#00982B',
+      infected: '#06AED5'
     }
   };
 }

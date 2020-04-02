@@ -40,4 +40,7 @@ export default class UpdateModel extends Model {
   @attr('number') ageEightyPlus;
   @attr('number') ageNd;
 
+  @attr('number') dead;
+  @attr('number') recovered;
+
 }

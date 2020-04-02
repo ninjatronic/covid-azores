@@ -239,13 +239,26 @@
           @class={{'text-muted display-5'}} />
       </div>
     </div>
-    <p class='text-center'>
-      <small>
-        {{t 'app_foot.before_link'}}
-        <a href='https://ko-fi.com/ninjatronic'>
-          {{t 'app_foot.link'}}
-        </a>.
-      </small>
-    </p>
+    <div class='row'>
+      <div class='col'>
+        <DeadRecoveredChart
+          @data={{model}}
+          @class={{'text-muted display-5'}} />
+      </div>
+      <div class='col'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col'>
+        <p class='text-center'>
+          <small>
+            {{t 'app_foot.before_link'}}
+            <a href='https://ko-fi.com/ninjatronic'>
+              {{t 'app_foot.link'}}
+            </a>.
+          </small>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
