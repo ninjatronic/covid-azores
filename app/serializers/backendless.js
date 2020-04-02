@@ -8,8 +8,6 @@ export default class BackendlessSerializer extends JSONAPISerializer {
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     var newPayload = [];
 
-    console.log(this.keyForAttribute('age1019', 'deserialize'))
-
     payload.forEach((item, i) => {
       var newItem = {
         attributes: {}
