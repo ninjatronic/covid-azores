@@ -66,19 +66,19 @@ export default class DeadRecoveredChartComponent extends Component {
       data: infectedData,
       fill: false,
       borderColor: this.constants.colors.status.infected,
-      backgroundColor: '#1F1F1F',
+      backgroundColor: this.constants.colors.status.infected,
       lineTension: 0.1
     }
   }
 
   @computed('this.sortedData.@each.dead')
   get deadDataSet() {
-    return this.getDataSet(this.options.dataSets.dead, this.intl.t('cases_dead'), false, this.constants.colors.status.dead);
+    return this.getDataSet(this.options.dataSets.dead, this.intl.t('cases_dead'), false, this.constants.colors.status.dead, this.constants.colors.status.dead);
   }
 
   @computed('this.sortedData.@each.recovered')
   get recoveredDataSet() {
-    return this.getDataSet(this.options.dataSets.recovered, this.intl.t('cases_recovered'), false, this.constants.colors.status.recovered);
+    return this.getDataSet(this.options.dataSets.recovered, this.intl.t('cases_recovered'), false, this.constants.colors.status.recovered, this.constants.colors.status.recovered);
   }
 
   data = {

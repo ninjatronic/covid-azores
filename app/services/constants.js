@@ -35,9 +35,9 @@ export default class ConstantsService extends Service {
     },
 
     status: {
-      dead: '#E53D00',
+      dead: '#811200',
       recovered: '#00982B',
-      infected: '#06AED5'
+      infected: '#A83900'
     }
   };
 }
