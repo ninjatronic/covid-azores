@@ -29,4 +29,15 @@ export default class UpdateModel extends Model {
   @attr('number') male;
   @attr('number') female;
 
+  @attr('number') ageZeroToNine;
+  @attr('number') ageTenToNineteen;
+  @attr('number') ageTwentyToTwentynine;
+  @attr('number') ageThirtyToThirtynine;
+  @attr('number') ageFortyToFortynine;
+  @attr('number') ageFiftyToFiftynine;
+  @attr('number') ageSixtyToSixtynine;
+  @attr('number') ageSeventyToSeventynine;
+  @attr('number') ageEightyPlus;
+  @attr('number') ageNd;
+
 }
