@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class='row justify-content-center d-none d-md-block'>
-      <figure class='figure col-md-2'>
+      <figure class='figure col-2'>
         <Map @class={{'map'}} @id={{'western-group'}}
           @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
           @onClick={{action 'clearSelection'}}
@@ -29,7 +29,7 @@
           {{t 'western_group'}}
         </figcaption>
       </figure>
-      <figure class='figure col-md-7'>
+      <figure class='figure col-7'>
         <Map @class={{'map'}} @id={{'central-group'}}
           @geoJson={{centralGroupGeoJson}} @scale={{0.7}}
           @onClick={{action 'clearSelection'}}
@@ -45,7 +45,7 @@
           {{t 'central_group'}}
         </figcaption>
       </figure>
-      <figure class='figure col-md-3 figure-end'>
+      <figure class='figure col-3 figure-end'>
         <Map @class={{'map'}} @id={{'eastern-group'}}
           @geoJson={{easternGroupGeoJson}} @scale={{0.7}}
           @onClick={{action 'clearSelection'}}
@@ -64,19 +64,17 @@
     </div>
     <div class='row d-none d-md-block'>
       {{#if selected}}
-        <div class='col-9'>
+        <div class='col'>
           <h1 class='display-4'>
             {{t 'cases_on'}}
             <span class={{selected}}>
               {{t selected}}
             </span>: {{selectedTotal}}
-          </h1>
-        </div>
-        <div class='col-3'>
-          <h1 class='display-4 text-right'>
-            <a class='clear-selection' {{action 'clearSelection'}}>
-                {{t 'clear_selection'}}
-            </a>
+            <small class='clear-selection'>
+              <a {{action 'clearSelection'}}>
+                  {{t 'clear_selection'}}
+              </a>
+            </small>
           </h1>
         </div>
       {{else}}
