@@ -23,15 +23,15 @@ export default class ConstantsService extends Service {
     },
 
     age: {
-      group1: '#66B2E2',
-      group2: '#4CA6DD',
-      group3: '#3399D8',
-      group4: '#198CD3',
-      group5: '#0080CF',
-      group6: '#0073BA',
-      group7: '#0066A5',
-      group8: '#005990',
-      group9: '#004C7C'
+      group1: '#6443BC',
+      group2: '#5E44BB',
+      group3: '#5645B7',
+      group4: '#4647B2',
+      group5: '#3649AB',
+      group6: '#274AA5',
+      group7: '#1B4CA0',
+      group8: '#0C4E9B',
+      group9: '#004F96'
     }
   };
 }
