@@ -1,14 +1,18 @@
 <div class='container'>
-  <h1 class='display-3'>{{t 'app_title'}}</h1>
-  <p class='lead'>
-    {{t 'app_lead.before_link'}}
-    <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
-      {{t 'app_lead.link'}}
-    </a>
-    {{t 'app_lead.after_link'}}
-  </p>
   <div class='container'>
-    <div class='row justify-content-center'>
+    <div class='row'>
+      <div class='col'>
+        <h1 class='display-4'>{{t 'app_title'}}</h1>
+        <p class='lead'>
+          {{t 'app_lead.before_link'}}
+          <a href='https://www.azores.gov.pt/Portal/pt/entidades/srs/livres/Linha+Saude+Acores.htm'>
+            {{t 'app_lead.link'}}
+          </a>
+          {{t 'app_lead.after_link'}}
+        </p>
+      </div>
+    </div>
+    <div class='row justify-content-center d-none d-md-block'>
       <figure class='figure col-md-2'>
         <Map @class={{'map'}} @id={{'western-group'}}
           @geoJson={{westernGroupGeoJson}} @scale={{0.4}}
@@ -21,7 +25,7 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'western_group'}}
         </figcaption>
       </figure>
@@ -37,7 +41,7 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'central_group'}}
         </figcaption>
       </figure>
@@ -53,15 +57,13 @@
             @maxCases={{maxCases}}
             @selected={{selected}}/>
         </Map>
-        <figcaption class='figure-caption'>
+        <figcaption class='figure-caption d-none d-lg-block'>
           {{t 'eastern_group'}}
         </figcaption>
       </figure>
     </div>
-  </div>
-  {{#if selected}}
-    <div class='container'>
-      <div class='row'>
+    <div class='row d-none d-md-block'>
+      {{#if selected}}
         <div class='col-9'>
           <h1 class='display-4'>
             {{t 'cases_on'}}
@@ -77,21 +79,141 @@
             </a>
           </h1>
         </div>
-      </div>
-    </div>
-  {{else}}
-    <div class='container'>
-      <div class='row'>
+      {{else}}
         <div class='col'>
           <h1 class='display-4'>
             {{t 'total_cases'}}: {{latestUpdate.runningTotal}}
           </h1>
         </div>
+      {{/if}}
+    </div>
+    <div class='row  d-md-none'>
+      <div class='col'>
+        <table class='table'>
+          <tr>
+            <th scope='row'>
+              <span>
+                {{t 'total_cases'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span>
+                {{latestUpdate.runningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='saoMiguel'>
+                {{t 'saoMiguel'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='saoMiguel'>
+                {{latestUpdate.saoMiguelRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='santaMaria'>
+                {{t 'santaMaria'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='santaMaria'>
+                {{latestUpdate.santaMariaRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='faial'>
+                {{t 'faial'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='faial'>
+                {{latestUpdate.faialRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='pico'>
+                {{t 'pico'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='pico'>
+                {{latestUpdate.picoRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='saoJorge'>
+                {{t 'saoJorge'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='saoJorge'>
+                {{latestUpdate.saoJorgeRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='terceira'>
+                {{t 'terceira'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='terceira'>
+                {{latestUpdate.terceiraRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='graciosa'>
+                {{t 'graciosa'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='graciosa'>
+                {{latestUpdate.graciosaRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='flores'>
+                {{t 'flores'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='flores'>
+                {{latestUpdate.floresRunningTotal}}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope='row'>
+              <span class='corvo'>
+                {{t 'corvo'}}:
+              </span>
+            </th>
+            <td class='text-right'>
+              <span class='corvo'>
+                {{latestUpdate.corvoRunningTotal}}
+              </span>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
-  {{/if}}
-  <div class='container chart-container'>
-    <div class='row'>
+    <div class='chart-container row'>
       <div class='col'>
         <TotalCasesChart
           @data={{model}}
@@ -117,13 +239,13 @@
           @class={{'text-muted display-5'}} />
       </div>
     </div>
+    <p class='text-center'>
+      <small>
+        {{t 'app_foot.before_link'}}
+        <a href='https://ko-fi.com/ninjatronic'>
+          {{t 'app_foot.link'}}
+        </a>.
+      </small>
+    </p>
   </div>
-  <p class='text-center'>
-    <small>
-      {{t 'app_foot.before_link'}}
-      <a href='https://ko-fi.com/ninjatronic'>
-        {{t 'app_foot.link'}}
-      </a>.
-    </small>
-  </p>
 </div>
