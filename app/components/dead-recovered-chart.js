@@ -81,13 +81,16 @@ export default class DeadRecoveredChartComponent extends Component {
     return this.getDataSet(this.options.dataSets.recovered, this.intl.t('cases_recovered'), false, this.constants.colors.status.recovered, this.constants.colors.status.recovered);
   }
 
-  data = {
-    labels: this.labels,
-    datasets: [
-      this.totalsDataSet,
-      this.infectedDataSet,
-      this.deadDataSet,
-      this.recoveredDataSet
-    ]
-  };
+  @computed('totalsDataSet', 'infectedDataSet', 'deadDataSet', 'recoveredDataSet', 'labels')
+  get data() {
+    return {
+      labels: this.labels,
+      datasets: [
+        this.totalsDataSet,
+        this.infectedDataSet,
+        this.deadDataSet,
+        this.recoveredDataSet
+      ]
+    };
+  }
 }
