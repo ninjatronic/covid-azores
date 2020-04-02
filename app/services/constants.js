@@ -12,6 +12,7 @@ export default class ConstantsService extends Service {
     graciosa: '#3FDA68',
     flores: '#0081CF',
     corvo: '#004F96',
+    muted: '#888',
 
     alert: {
       lowest: '#FD7E14',
@@ -19,6 +20,18 @@ export default class ConstantsService extends Service {
       mid: '#A83900',
       high: '#811200',
       highest: '#5E0000'
+    },
+
+    age: {
+      group1: '#66B2E2',
+      group2: '#4CA6DD',
+      group3: '#3399D8',
+      group4: '#198CD3',
+      group5: '#0080CF',
+      group6: '#0073BA',
+      group7: '#0066A5',
+      group8: '#005990',
+      group9: '#004C7C'
     }
   };
 }

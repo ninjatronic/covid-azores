@@ -31,6 +31,7 @@ export default class GenderChartComponent extends Component {
         backgroundColor: [
           this.constants.colors.corvo, this.constants.colors.saoMiguel
         ],
+        borderColor: this.constants.colors.muted,
         label: this.intl.t('genders')
       }],
       labels: [

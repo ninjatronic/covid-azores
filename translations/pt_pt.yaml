@@ -13,6 +13,7 @@ daily_cases: Casos Diários
 total_cases: Total de Casos
 cases_on: Casos em
 cases_by_gender: Casos por Gênero
+cases_by_age: Casos por Idade
 
 genders: Gêneros
 male: Masculino
