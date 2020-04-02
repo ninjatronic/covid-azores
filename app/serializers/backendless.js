@@ -6,18 +6,23 @@ export default class BackendlessSerializer extends JSONAPISerializer {
   primaryKey = 'objectId';
 
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+    var newPayload = [];
+
     payload.forEach((item, i) => {
-      item.attributes = item;
-      for(var key in item.attributes) {
-        item.attributes[dasherize(key)] = item.attributes[key];
+      var newItem = {
+        attributes: {}
+      };
+      for(var key in item) {
+        newItem.attributes[dasherize(key)] = item[key];
       }
-      item.attributes.date = item.attributes.updateDate;
-      item.type = singularize(item.attributes.___class);
-      item.objectId = item.attributes.objectId;
+      newItem.attributes.date = item.updateDate;
+      newItem.type = singularize(item.___class);
+      newItem.objectId = item.objectId;
+      newPayload.push(newItem);
     });
 
     payload = {
-      data: payload
+      data: newPayload
     };
 
     return super.normalizeResponse(store, primaryModelClass, payload, id, requestType);

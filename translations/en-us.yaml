@@ -6,12 +6,18 @@ app_lead:
   after_link: and isolate yourself.
 
 app_foot:
-  before_link: Made by Pete Martin, 2020. If you found this useful please consider
+  before_link: If you found this useful please consider
   link: buying me a coffee
 
-daily_cases: 'Daily Cases'
-total_cases: 'Total Cases'
-cases_on: 'Cases on'
+daily_cases: Daily Cases
+total_cases: Total Cases
+cases_on: Cases on
+cases_by_gender: Cases by Gender
+cases_by_age: Cases by Age
+
+genders: Genders
+male: Male
+female: Female
 
 western_group: Western Group
 central_group: Central Group
